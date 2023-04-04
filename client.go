@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 
+	pb "github.com/Sane4ek55/grpc_test/tree/master/proto"
+
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/grpclog"
 )
