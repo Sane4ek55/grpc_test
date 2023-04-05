@@ -1,17 +1,17 @@
 syntax = "proto3";
 
-package reverse;
+package Sane4ek55.grpc_test.api;
 
 option go_package = "/;revers";
 
 service Reverse {
-    rpc Do(Request) returns (Response) {}
+    rpc Do(Request_reverse) returns (Response_reverse);
 }
 
-message Request {
+message Request_reverse {
     string message = 1;
 }
 
-message Response {
+message Response_reverse {
     string message = 1;
 }
