@@ -3,7 +3,7 @@ package main
 import (
 	"net"
 
-	pb "github.com/Sane4ek55/grpc_test/proto"
+	pb "github.com/Sane4ek55/grpc_test/pkg"
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"

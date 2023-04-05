@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: reverse.proto
 
-package __
+package revers
 
 import (
 	context "context"
