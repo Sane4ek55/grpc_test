@@ -8,12 +8,13 @@ import (
 	pb "github.com/Sane4ek55/grpc_test/pkg"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/grpclog"
 )
 
 func main() {
 	opts := []grpc.DialOption{
-		grpc.WithInsecure(),
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
 	}
 	args := os.Args
 	conn, err := grpc.Dial("127.0.0.1:5300", opts...)
@@ -25,7 +26,7 @@ func main() {
 	defer conn.Close()
 
 	client := pb.NewReverseClient(conn)
-	request := &pb.Request{
+	request := &pb.RequestReverse{
 		Message: args[1],
 	}
 	response, err := client.Do(context.Background(), request)

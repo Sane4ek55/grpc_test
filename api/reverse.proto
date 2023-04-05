@@ -5,13 +5,13 @@ package Sane4ek55.grpc_test.api;
 option go_package = "/;revers";
 
 service Reverse {
-    rpc Do(Request_reverse) returns (Response_reverse);
+    rpc Do(RequestReverse) returns (ResponseReverse);
 }
 
-message Request_reverse {
+message RequestReverse {
     string message = 1;
 }
 
-message Response_reverse {
+message ResponseReverse {
     string message = 1;
 }

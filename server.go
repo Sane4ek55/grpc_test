@@ -26,7 +26,7 @@ func main() {
 
 type server struct{}
 
-func (s *server) Do(c context.Context, request *pb.Request) (response *pb.Response, err error) {
+func (s *server) Do(c context.Context, request *pb.RequestReverse) (response *pb.ResponseReverse, err error) {
 	n := 0
 	// Сreate an array of runes to safely reverse a string.
 	rune := make([]rune, len(request.Message))
@@ -44,7 +44,7 @@ func (s *server) Do(c context.Context, request *pb.Request) (response *pb.Respon
 	}
 
 	output := string(rune)
-	response = &pb.Response{
+	response = &pb.ResponseReverse{
 		Message: output,
 	}
 
