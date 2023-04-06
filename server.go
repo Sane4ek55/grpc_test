@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net"
 
 	pb "github.com/Sane4ek55/grpc_test/pkg"
@@ -22,9 +23,12 @@ func main() {
 
 	pb.RegisterReverseServer(grpcServer, &server{})
 	grpcServer.Serve(listener)
+	fmt.Println("Server started!")
 }
 
-type server struct{}
+type server struct {
+	pb.UnimplementedReverseServer
+}
 
 func (s *server) Do(c context.Context, request *pb.RequestReverse) (response *pb.ResponseReverse, err error) {
 	n := 0

@@ -1,4 +1,4 @@
-FROM golang:1.12
+FROM golang:latest
 
 ADD . /go/src/test_service_timofeev
 
