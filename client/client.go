@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"os"
 
 	pb "github.com/Sane4ek55/grpc_test/pkg"
 
@@ -16,10 +15,9 @@ func main() {
 	opts := []grpc.DialOption{
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
 	}
-	args := os.Args
-	fmt.Println("1")
-	fmt.Println(args[0])
-	fmt.Println("1")
+	//args := os.Args
+	args := "Переворачиваю фразу с конца в начало!"
+
 	conn, err := grpc.Dial("127.0.0.1:5300", opts...)
 
 	if err != nil {
@@ -30,7 +28,7 @@ func main() {
 
 	client := pb.NewReverseClient(conn)
 	request := &pb.RequestReverse{
-		Message: args[0],
+		Message: args,
 	}
 	response, err := client.Do(context.Background(), request)
 
