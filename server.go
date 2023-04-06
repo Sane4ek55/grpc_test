@@ -18,12 +18,14 @@ func main() {
 		grpclog.Fatalf("failed to listen: %v", err)
 	}
 
+	defer listener.Close()
+
 	opts := []grpc.ServerOption{}
 	grpcServer := grpc.NewServer(opts...)
 
 	pb.RegisterReverseServer(grpcServer, &server{})
-	grpcServer.Serve(listener)
 	fmt.Println("Server started!")
+	grpcServer.Serve(listener)
 }
 
 type server struct {

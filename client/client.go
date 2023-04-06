@@ -17,6 +17,9 @@ func main() {
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
 	}
 	args := os.Args
+	fmt.Println("1")
+	fmt.Println(args[0])
+	fmt.Println("1")
 	conn, err := grpc.Dial("127.0.0.1:5300", opts...)
 
 	if err != nil {
@@ -27,7 +30,7 @@ func main() {
 
 	client := pb.NewReverseClient(conn)
 	request := &pb.RequestReverse{
-		Message: args[1],
+		Message: args[0],
 	}
 	response, err := client.Do(context.Background(), request)
 
